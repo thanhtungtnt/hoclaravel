@@ -16,3 +16,5 @@ yarn-error.log
 template/AdminLTE-3.1.0/
 public/template/
 template/
+public/ckeditor/
+public/
