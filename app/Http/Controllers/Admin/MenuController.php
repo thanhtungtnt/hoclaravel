@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Menu\CreateFormRequest;
 use Illuminate\Http\Request;
 use App\Http\Services\Menu\MenuService;
+use App\Helpers\Helper;
 
 class MenuController extends Controller
 {
@@ -28,7 +29,10 @@ class MenuController extends Controller
         return redirect()->back();
     }
 
-    public function list(){
-
+    public function index(){
+        return view('admin.menus.list', [
+            'title' => 'Danh Sách Danh Mục',
+            'menus' => $this->menuService->getAll()
+        ]);
     }
 }
