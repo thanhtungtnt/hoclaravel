@@ -15,6 +15,10 @@ class Helper{
                         <td>'.$m->description.'</td>
                         <td>'.$m->content.'</td>
                         <td>'.$m->active.'</td>
+                        <td>
+                            <a href="/admin/menus/edit/'.$m->id.'" class="text-primary"><i class="fas fa-edit"></i></a>
+                            <a href="#" onclick="removeRow('.$m->id.', \'/admin/menus/destroy\')" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                        </td>
                     </tr>
                 ';
 

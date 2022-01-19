@@ -6,7 +6,7 @@
 <!-- AdminLTE App -->
 <script src="/template/admin/dist/js/adminlte.min.js"></script>
 
+<script src="/template/admin/js/main.js"></script>
+
 @yield('foot')
 
-</body>
-</html>
