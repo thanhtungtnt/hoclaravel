@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Menu;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Menu\CreateFormRequest;
 use Illuminate\Http\Request;
@@ -48,5 +49,13 @@ class MenuController extends Controller
                 'message' => 'Xóa không thành công'
             ]);
         }
+    }
+
+    public function show(Menu $menu){
+        return view('admin.menus.edit', [
+            'title' => 'Chỉnh Sửa Danh Mục: '.$menu->name,
+            'menu' => $menu,
+            'menus' => $this->menuService->getParent()
+        ]);
     }
 }

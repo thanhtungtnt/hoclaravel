@@ -23,6 +23,7 @@ Route::prefix('admin')->group(function(){
     Route::prefix('menus')->group(function(){
         Route::get('add', [MenuController::class, 'create']);
         Route::post('add',[MenuController::class, 'store']);
+        Route::get('edit/{menu}', [MenuController::class, 'show']);
         Route::get('list', [MenuController::class, 'index']);
         Route::DELETE('destroy', [MenuController::class, 'destroy']);
     });
