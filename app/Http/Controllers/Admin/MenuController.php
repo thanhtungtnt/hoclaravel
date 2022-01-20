@@ -58,4 +58,10 @@ class MenuController extends Controller
             'menus' => $this->menuService->getParent()
         ]);
     }
+
+    public function update(Menu $menu, CreateFormRequest $request){
+        $result = $this->menuService->update($menu, $request);
+
+        return redirect()->back();
+    }
 }

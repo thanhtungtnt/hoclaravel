@@ -36,6 +36,19 @@ class MenuService{
         return true;
     }
 
+    public function update($menu, $request){
+        $menu->name = (string) $request->input("name");
+        $menu->parent_id = (int) $request->input("parent_id");
+        $menu->description = (string) $request->input("description");
+        $menu->content = (string) $request->input("content");
+        $menu->link = (string) $request->input("link");
+        $menu->active = (string) ($request->input("active")) ? 1 : 0;
+
+        $menu->save();
+
+        $request->session()->flash('success', 'Cập Nhật Thành Công Danh Mục');
+    }
+
     public function destroy($request){
         $id = $request->input('id');
         $menu = Menu::where('id', $id)->first();
