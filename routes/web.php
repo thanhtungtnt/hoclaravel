@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\Users\LoginController;
 use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
+use \App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,11 @@ Route::prefix('admin')->group(function(){
         Route::post('edit/{menu}',[MenuController::class, 'update']);
         Route::get('list', [MenuController::class, 'index']);
         Route::DELETE('destroy', [MenuController::class, 'destroy']);
+    });
+
+    //Product
+    Route::prefix('products')->group(function(){
+        Route::get('add', [ProductController::class, 'create']);
     });
 });
 
