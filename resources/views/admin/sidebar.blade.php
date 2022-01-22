@@ -11,10 +11,10 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/template/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/template/admin/dist/img/tungpham.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Tung Pham</a>
         </div>
       </div>
 
@@ -32,9 +32,9 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
+        <!-- List Menu -->
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+          <!-- Danh Muc -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -57,8 +57,34 @@
                 </a>
               </li>
             </ul>
-          </li>
-        </ul>
+          </li><!-- end Danh Muc -->
+
+          <!-- San Pham -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Sản Phẩm
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/products/add" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thêm Sản Phẩm</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/products/list" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh Sách Sản Phẩm</p>
+                </a>
+              </li>
+            </ul>
+          </li><!-- end San Pham -->
+
+        </ul><!-- end List Menu -->
       </nav>
       <!-- /.sidebar-menu -->
     </div>
