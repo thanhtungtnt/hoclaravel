@@ -5,6 +5,7 @@ use \App\Http\Controllers\Admin\Users\LoginController;
 use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UploadController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,5 +35,8 @@ Route::prefix('admin')->group(function(){
     Route::prefix('products')->group(function(){
         Route::get('add', [ProductController::class, 'create']);
     });
+
+    //Upload
+    Route::post('upload/service', [UploadController::class, 'store']);
 });
 

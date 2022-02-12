@@ -22,3 +22,5 @@ function removeRow(id, url){
         });
     }
 }
+
+// Upload file
