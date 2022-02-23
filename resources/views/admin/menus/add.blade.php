@@ -1,7 +1,7 @@
 @extends('admin.main')
 
 @section('head')
-    <script src="/ckeditor/ckeditor.js"></script>  
+    <script src="/ckeditor/ckeditor.js"></script>
 @endsection
 
 @section('content')
@@ -20,12 +20,21 @@
 
             <div class="form-group">
                 <label for="menuParent">Danh Mục Cha</label>
+                <select class="form-control" name="parent_id" id="group-parent">
+                    <option value="0">-- Chọn Menu -- </option>
+                    @foreach (menus as $m)
+                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                        @foreach ($m->childrenMenus as $childMenu)
+                            @include('admin.menus.child_select', ['child_menu' => $childMenu, 'currentParent' => 0, 'prefix' => '----'])
+                        @endforeach
+                    @endforeach
+                </select>
                 <select class="form-control" name="parent_id">
                     <option value="0">-- Danh Mục Cha -- </option>
                     @foreach ($menus as $m)
                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                     @endforeach
-                    
+
                 </select>
             </div>
 
@@ -45,7 +54,7 @@
             </div>
 
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="active" id="menuActive">
+                <input type="checkbox" class="form-check-input" name="active" checked="checked" id="menuActive">
                 <label class="form-check-label" for="menuActive">Kích Hoạt</label>
             </div>
         </div>

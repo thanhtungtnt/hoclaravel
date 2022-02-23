@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Helpers;
 
 class Helper{
@@ -24,7 +24,7 @@ class Helper{
 
                 unset($menus[$k]);
 
-                $html .= self::menus($menus, $m->id, '|---');
+                $html .= self::menus($menus, $m->id, $char.'----');
             }
         }
 

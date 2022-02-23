@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Services\Menu;
 
 use App\Models\Menu;
@@ -11,7 +11,13 @@ class MenuService{
     }
 
     public function getAll(){
-        return Menu::orderbyDesc('id')->paginate(10);
+//        return Menu::where('parent_id', null)
+//            ->with('childrenMenus')
+//            ->get();
+
+        return Menu::where('parent_id', null)
+            ->with('childrenMenus')
+            ->get();
     }
 
     public function create($request){
@@ -31,7 +37,7 @@ class MenuService{
         } catch (\Exception $err) {
             Session::flash('error',$err->getMessage());
             return false;
-        } 
+        }
 
         return true;
     }
