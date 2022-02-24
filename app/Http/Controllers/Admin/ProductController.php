@@ -3,10 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\Menu\MenuService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    protected $menuService;
+
+    public function __construct(MenuService $menuService){
+        $this->menuService = $menuService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +32,8 @@ class ProductController extends Controller
     public function create()
     {
         return view('admin.products.add', [
-            'title'=>'Thêm Sản Phẩm'
+            'title'=>'Thêm Sản Phẩm',
+            'menus' => $this->menuService->getAll()
         ]);
     }
 
