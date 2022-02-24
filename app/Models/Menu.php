@@ -21,7 +21,7 @@ class Menu extends Model
     //Hàm này lấy được 1 child của group mà nó tìm thấy
     public function menus()
     {
-        return $this->hasMany(Menu::class);
+        return $this->hasMany(Menu::class, 'parent_id');
     }
 
     //Hàm này lấy được nhiều child của nhiều cấp mà nó tìm thấy

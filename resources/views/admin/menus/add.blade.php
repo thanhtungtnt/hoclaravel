@@ -22,19 +22,12 @@
                 <label for="menuParent">Danh Mục Cha</label>
                 <select class="form-control" name="parent_id" id="group-parent">
                     <option value="0">-- Chọn Menu -- </option>
-                    @foreach (menus as $m)
+                    @foreach ($menus as $m)
                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                         @foreach ($m->childrenMenus as $childMenu)
                             @include('admin.menus.child_select', ['child_menu' => $childMenu, 'currentParent' => 0, 'prefix' => '----'])
                         @endforeach
                     @endforeach
-                </select>
-                <select class="form-control" name="parent_id">
-                    <option value="0">-- Danh Mục Cha -- </option>
-                    @foreach ($menus as $m)
-                        <option value="{{ $m->id }}">{{ $m->name }}</option>
-                    @endforeach
-
                 </select>
             </div>
 
