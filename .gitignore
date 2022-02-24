@@ -15,3 +15,4 @@ yarn-error.log
 /.vscode
 template/AdminLTE-3.1.0/
 public/public-template.zip
+templates/
