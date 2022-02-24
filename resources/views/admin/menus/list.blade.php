@@ -15,7 +15,24 @@
         </tr>
     </thead>
     <tbody>
-        {!! App\Helpers\Helper::menus($menus, 0, '') !!}
+        @foreach($menus as $m)
+            <tr>
+                <td>{{$m->id}}</td>
+                <td>{{$m->name}}</td>
+                <td>{{$m->parent_id}}</td>
+                <td>{{$m->description}}</td>
+                <td>{{$m->content}}</td>
+                <td>{{$m->active}}</td>
+                <td>
+                    <a href="/admin/menus/edit/{{$m->id}}" class="text-secondary"><span class="material-icons">mode_edit</span></a>
+                    <a href="#" rel="{{$m->id}}" class="text-danger removeMenu"><span class="material-icons">delete</span></a>
+                </td>
+            </tr>
+            @foreach ($m->childrenMenus as $childMenu)
+                @include('admin.menus.child_table', ['child_menu' => $childMenu, 'currentParent' => 0, 'prefix' => '----'])
+            @endforeach
+
+        @endforeach
     </tbody>
 </table>
 @endsection
