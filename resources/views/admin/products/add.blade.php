@@ -55,6 +55,11 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="productImage">Ảnh sản phẩm</label>
+                    <input type="file" name="thumb" class="form-control" id="productImage" />
+                </div>
+
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="active" checked="checked" id="productActive">
                     <label class="form-check-label" for="productActive">Kích Hoạt</label>
