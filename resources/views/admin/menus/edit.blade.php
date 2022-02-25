@@ -1,7 +1,7 @@
 @extends('admin.main')
 
 @section('head')
-    <script src="/ckeditor/ckeditor.js"></script>  
+    <script src="/ckeditor/ckeditor.js"></script>
 @endsection
 
 @section('content')
@@ -21,11 +21,13 @@
             <div class="form-group">
                 <label for="menuParent">Danh Mục Cha</label>
                 <select class="form-control" name="parent_id">
-                    <option value="0">-- Danh Mục Cha -- </option>
+                    <option value="0">-- Chọn Menu -- </option>
                     @foreach ($menus as $m)
-                        <option value="{{ $m->id }}" {{ ($m->id == $menu->parent_id) ? "selected" : "" }}>{{ $m->name }}</option>
+                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                        @foreach ($m->childrenMenus as $childMenu)
+                            @include('admin.menus.child_select', ['child_menu' => $childMenu, 'currentParent' => $menu->parent_id, 'prefix' => '----'])
+                        @endforeach
                     @endforeach
-                    
                 </select>
             </div>
 

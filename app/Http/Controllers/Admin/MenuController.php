@@ -57,7 +57,7 @@ class MenuController extends Controller
         return view('admin.menus.edit', [
             'title' => 'Chỉnh Sửa Danh Mục: '.$menu->name,
             'menu' => $menu,
-            'menus' => $this->menuService->getParent()
+            'menus' => $this->menuService->getAll()
         ]);
     }
 
