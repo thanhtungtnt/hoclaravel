@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="menuParent">Danh Mục Cha</label>
                 <select class="form-control" name="parent_id" id="group-parent">
-                    <option value="0">-- Chọn Menu -- </option>
+                    <option value="0">-- Chọn Danh Mục -- </option>
                     @foreach ($menus as $m)
                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                         @foreach ($m->childrenMenus as $childMenu)
