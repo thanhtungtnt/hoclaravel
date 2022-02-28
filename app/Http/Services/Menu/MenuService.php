@@ -11,10 +11,6 @@ class MenuService{
     }
 
     public function getAll(){
-//        return Menu::where('parent_id', null)
-//            ->with('childrenMenus')
-//            ->get();
-
         return Menu::where('parent_id', null)
             ->with('childrenMenus')
             ->get();
@@ -23,10 +19,13 @@ class MenuService{
     public function create($request){
         try {
             $active = ($request->input('active')) ? '1' : '0';
-
+            $parent_id = $request->input('parent_id');
+            if($parent_id == 0){
+                $parent_id = null;
+            }
             Menu::create([
                 'name' => (string) $request->input('name'),
-                'parent_id' => (int) $request->input('parent_id'),
+                'parent_id' => $parent_id,
                 'description' => (string) $request->input('description'),
                 'content' => (string) $request->input('content'),
                 'link' => (string) Str::slug($request->input('name'), '-'),
