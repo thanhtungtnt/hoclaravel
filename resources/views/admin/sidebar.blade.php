@@ -37,7 +37,7 @@
           <!-- Danh Muc -->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-tags"></i>
               <p>
                 Danh Mục
                 <i class="right fas fa-angle-left"></i>
@@ -62,7 +62,7 @@
           <!-- San Pham -->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-shopping-cart"></i>
               <p>
                 Sản Phẩm
                 <i class="right fas fa-angle-left"></i>
