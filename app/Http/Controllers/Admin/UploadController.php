@@ -15,7 +15,18 @@ class UploadController extends Controller
         $this->upload = $upload;
     }
 
-    public function store(Request $request){
-
+    public function store(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $url = $this->upload->store($request);
+        if($url !== false){
+            return response()->json([
+                'error' => false,
+                'url' => $url
+            ]);
+        }else{
+            return response()->json([
+                'error' => true
+            ]);
+        }
     }
 }

@@ -37,6 +37,6 @@ Route::prefix('admin')->group(function(){
     });
 
     //Upload
-    Route::post('upload/service', [UploadController::class, 'store']);
+    Route::post('upload/services', [UploadController::class, 'store']);
 });
 

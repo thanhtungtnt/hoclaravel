@@ -58,13 +58,16 @@
                 <div class="form-group">
                     <label for="productImage">Ảnh sản phẩm</label>
                     <input type="file" name="thumb" class="form-control" id="productImage" />
+                    <input type="hidden" name="product_thumb" id="productThumb" value="">
+                    <div class="imgWrap" style="display: none; max-width: 200px">
+                        <img src="" class="img-thumbnail rounded d-block" alt="">
+                    </div>
                 </div>
 
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="active" checked="checked" id="productActive">
                     <label class="form-check-label" for="productActive">Kích Hoạt</label>
                 </div>
-
             </div>
             <!-- /.card-body -->
 
