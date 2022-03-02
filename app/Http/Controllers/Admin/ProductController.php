@@ -4,14 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\Menu\MenuService;
+use App\Http\Services\ProductService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     protected $menuService;
+    protected $productService;
 
-    public function __construct(MenuService $menuService){
+    public function __construct(MenuService $menuService, ProductService $productService){
         $this->menuService = $menuService;
+        $this->productService = $productService;
     }
 
     /**
@@ -45,7 +48,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->productService->create($request);
+
+        return redirect()->back();
     }
 
     /**
