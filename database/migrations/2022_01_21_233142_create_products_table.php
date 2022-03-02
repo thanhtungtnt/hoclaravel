@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->foreign('menu_id')->references('id')->on('menus');
             $table->integer('price');
             $table->integer('price_sale');
+            $table->string('thumb');
             $table->integer('active');
             $table->timestamps();
         });

@@ -20,11 +20,14 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('admin.products.list',[
+           'title' => 'Danh Sách Sản Phẩm',
+            'products'=>$this->productService->getAll()
+        ]);
     }
 
     /**
@@ -36,7 +39,7 @@ class ProductController extends Controller
     {
         return view('admin.products.add', [
             'title'=>'Thêm Sản Phẩm',
-            'menus' => $this->menuService->getAll()
+            'menus'=>$this->menuService->getAll()
         ]);
     }
 

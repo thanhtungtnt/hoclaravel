@@ -10,6 +10,10 @@ class MenuService{
         return Menu::where('parent_id', null)->get();
     }
 
+    public function getAll2(){
+        return Menu::all();
+    }
+
     public function getAll(){
         return Menu::where('parent_id', null)
             ->with('childrenMenus')

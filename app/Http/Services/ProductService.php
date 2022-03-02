@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Session;
 
 class ProductService
 {
+    public function getAll(){
+        return Product::all();
+    }
+
     public function create($request){
         try {
             $name = $request->input('name');
@@ -25,7 +29,7 @@ class ProductService
                 'menu_id' => (int) $menu_id,
                 'price' => (int) $price,
                 'price_sale' => (int) $price_sale,
-                'product_thumb' => (string) $product_thumb,
+                'thumb' => (string) $product_thumb,
                 'active' => (int) $active
             ]);
             Session::flash('success','Tạo Sản Phẩm Thành Công');
