@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\ProductRequest;
 use App\Http\Services\Menu\MenuService;
 use App\Http\Services\ProductService;
 use Illuminate\Http\Request;
@@ -49,7 +50,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $result = $this->productService->create($request);
 

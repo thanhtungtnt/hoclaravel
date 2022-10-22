@@ -15,17 +15,17 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="productName">Tên Sản Phẩm</label>
-                    <input type="text" name="name" class="form-control" id="productName" placeholder="Nhập tên sản phẩm">
+                    <input type="text" name="name" class="form-control" id="productName" placeholder="Nhập tên sản phẩm" value="{{ old('name')}}">
                 </div>
 
                 <div class="form-group">
                     <label for="productDesc">Mô tả</label>
-                    <textarea class="form-control" name="description" rows="3" id="productDesc" placeholder="Nhập mô tả ..."></textarea>
+                    <textarea class="form-control" name="description" rows="3" id="productDesc" placeholder="Nhập mô tả ...">{{ old('description')}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="productContent">Nội dung</label>
-                    <textarea class="form-control" name="content" rows="3" id="productContent" placeholder="Nhập nội dung ..."></textarea>
+                    <textarea class="form-control" name="content" rows="3" id="productContent" placeholder="Nhập nội dung ...">{{ old('content')}}</textarea>
                 </div>
 
                 <div class="form-group">
@@ -44,13 +44,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="productPrice">Giá</label>
-                            <input type="text" class="form-control" name="price" id="productPrice" placeholder="Nhập giá" />
+                            <input type="text" class="form-control" name="price" id="productPrice" placeholder="Nhập giá" value="{{ old('price')}}" />
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="productPriceSale">Giá Sale</label>
-                            <input type="text" class="form-control" name="price_sale" id="productPriceSale" placeholder="Nhập giá sale (nếu có)" />
+                            <input type="text" class="form-control" name="price_sale" id="productPriceSale" placeholder="Nhập giá sale (nếu có)" value="{{ old('price_sale')}}" />
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="active" checked="checked" id="productActive">
+                    <input type="checkbox" class="form-check-input" name="active" checked="checked" id="productActive" value="{{ old('active')}}>
                     <label class="form-check-label" for="productActive">Kích Hoạt</label>
                 </div>
             </div>

@@ -11,8 +11,20 @@ class ProductService
         return Product::all();
     }
 
+    protected function isValidPrice($request){
+        if($request->input('price') > $request->input('price_sale')){
+            Session::flash('error', 'Giá giảm phải nhỏ hơn giá gốc');
+            return false;
+        }
+        return true;
+    }
+
     public function create($request){
         try {
+            $isValidPrice = $this->isValidPrice($request);
+            if ($isValidPrice === false) return false;
+
+            //get data
             $name = $request->input('name');
             $description = $request->input('description');
             $content = $request->input('content');
@@ -22,6 +34,8 @@ class ProductService
             $product_thumb = $request->input('product_thumb');
             $active = ($request->input('active')) ? '1' : '0';
 
+            //create row
+            //cach 1 : lay ra tung data
             Product::create([
                 'name' => $name,
                 'description' => (string) $description,
@@ -32,9 +46,12 @@ class ProductService
                 'thumb' => (string) $product_thumb,
                 'active' => (int) $active
             ]);
-            Session::flash('success','Tạo Sản Phẩm Thành Công');
+            Session::flash('success','Thêm Sản Phẩm Thành Công');
         }catch (\Exception $err) {
-            dd($err . getMessage());
+//            Session::flash('error', 'Thêm sản phẩm không thành công');
+            dd($err);
+            return false;
         }
+        return true;
     }
 }
