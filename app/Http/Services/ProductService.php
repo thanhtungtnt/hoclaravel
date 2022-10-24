@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 class ProductService
 {
     public function getAll(){
-        return Product::all();
+        return Product::orderByDesc('id')->paginate(1);
     }
 
     protected function isValidPrice($request){

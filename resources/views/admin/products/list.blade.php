@@ -28,12 +28,20 @@
                                 @endif
                             </td>
                             <td>{{$p->menu_id}}</td>
-                            <td>{{$p->active}}</td>
-                            <td>edit delete</td>
+                            <td>{!! ($p->active == 1) ? '<span class="btn btn-success btn-xs">yes</span>' : '<span class="btn btn-danger btn-xs">no</span>' !!}</span></td>
+                            <td><a href="/admin/products/edit/{{$p->id}}" class="text-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" rel="{{$p->id}}" class="text-danger removeProduct"><i class="fas fa-trash"></i></a></td>
                         </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6">{!! $products->links() !!}</td>
+                    </tr>
+                </tfoot>
             </table>
+
+
         </div>
     </div>
 @endsection
